@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SiteCase</title>
+  <meta name="theme-color" content="#0e0f13">
+  <meta name="description" content="本地 HTML 案例收藏夹，离线可用">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">SiteCase</div>
+    <div class="actions">
+      <span id="storageInfo" class="storage"></span>
+      <button id="importBtn" class="btn primary" type="button">导入 HTML</button>
+    </div>
+  </header>
+
+  <main id="list" class="grid"></main>
+
+  <div id="empty" class="empty">
+    <div class="empty-icon">🗂️</div>
+    <h2>还没有案例</h2>
+    <p>点右上角「导入 HTML」，从 iPad「文件」中选择 .html 文件。<br>
+       支持多选，同名未修改的文件会自动跳过。<br>
+       导入后离线可用。</p>
+  </div>
+
+  <input type="file" id="fileInput" multiple accept=".html,.htm,text/html">
+
+  <div id="viewer" class="viewer" hidden>
+    <div class="viewer-bar">
+      <button id="backBtn" class="btn" type="button">‹ 返回</button>
+      <div id="viewerTitle" class="viewer-title"></div>
+      <button id="deleteBtn" class="btn danger" type="button">删除</button>
+    </div>
+    <iframe id="frame" class="frame" title="案例内容" sandbox="allow-scripts"></iframe>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
